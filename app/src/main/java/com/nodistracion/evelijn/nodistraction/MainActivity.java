@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
         List<PackageInfo> packs = getPackageManager().getInstalledPackages(0);
         for (int i = 0; i < packs.size(); i++) {
             PackageInfo p = packs.get(i);
-            if ((isSystemPackage(p) == false)) {
+            if ((isSystemPackage(p) == false || isSystemPackage(p))) { // for now show both system and installed apps
                 String appName = p.applicationInfo.loadLabel(getPackageManager()).toString();
                 Drawable icon = p.applicationInfo.loadIcon(getPackageManager());
                 res.add(new AppList(appName, icon));
