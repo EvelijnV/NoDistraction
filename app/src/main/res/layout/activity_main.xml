@@ -1,8 +1,23 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:background="#d0e9ec"
+    tools:context=".MainActivity"
+    >
+
+
+
+
+
+
 
     <Button
         android:layout_width="wrap_content"
@@ -24,23 +39,6 @@
         android:layout_alignLeft="@+id/btnCreateNotify"
         android:layout_alignRight="@+id/btnCreateNotify"/>
 
-    <ScrollView android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/btnListNotify"
-        android:layout_below="@+id/btnListNotify"
-        android:layout_alignLeft="@+id/btnListNotify">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="NotificationListenerService Example"
-            android:id="@+id/textView"
-            />
-
-    </ScrollView>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,4 +48,52 @@
         android:layout_below="@+id/btnClearNotify"
         android:layout_alignLeft="@+id/btnClearNotify"
         android:layout_alignRight="@+id/btnClearNotify"/>
-</RelativeLayout>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="NotificationListenerService Example"
+            android:id="@+id/textView"
+            />
+
+            <TextView
+                android:id="@+id/tv_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/btn_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="Set Interruption Filter None (ON DoD)" />
+
+            <Button
+                android:id="@+id/btn_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set Interruption Filter All (OFF DoD)" />
+
+            <Button
+                android:id="@+id/btn_alarms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set Interruption Filter Alarms" />
+
+            <Button
+                android:id="@+id/btn_priority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set Interruption Filter Priority" />
+
+
+
+
+
+</LinearLayout>
+</ScrollView>
