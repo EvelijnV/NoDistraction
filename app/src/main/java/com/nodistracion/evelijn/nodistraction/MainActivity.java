@@ -7,7 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.view.View;
 import android.widget.TextView;
 
@@ -19,6 +21,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (NotificationManagerCompat.getEnabledListenerPackages(this).contains(getApplicationContext().getPackageName())) {
+            //(piece of code to open right settings
+            Intent intent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+            startActivity(intent);
+        }
         setContentView(R.layout.activity_main);
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
