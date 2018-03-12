@@ -76,6 +76,7 @@ public class MainActivity extends Activity {
                 mTVStats.setText("Now on do not disturb mode.");
             }
         });
+
         // Turn off do not disturb mode, allow all notifications
         mBtnFilterAll.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +89,23 @@ public class MainActivity extends Activity {
                 changeInterruptionFiler(NotificationManager.INTERRUPTION_FILTER_ALL);
                 mRootLayout.setBackgroundColor(Color.GREEN);
                 mTVStats.setText("Now off do not disturb mode.");
+            }
+        });
+
+        // Allow priority only notifications
+        // Partially turn on do not disturb mode
+        mBtnFilterPriority.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*
+                    int INTERRUPTION_FILTER_PRIORITY
+                        Interruption filter constant - Priority interruption filter - all notifications
+                        are suppressed except those that match the priority criteria. Some audio
+                        streams are muted.
+                */
+                changeInterruptionFiler(NotificationManager.INTERRUPTION_FILTER_PRIORITY);
+                mRootLayout.setBackgroundColor(Color.YELLOW);
+                mTVStats.setText("Now on do not disturb mode for priority only.");
             }
         });
 
@@ -154,17 +172,6 @@ public class MainActivity extends Activity {
 
     }
 
-
-
-    class NotificationReceiver extends BroadcastReceiver{
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String temp = intent.getStringExtra("notification_event") + "n" + txtView.getText();
-            txtView.setText(temp);
-        }
-    }
-
     protected void changeInterruptionFiler(int interruptionFilter){
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){ // If api level minimum 23
             /*
@@ -217,4 +224,15 @@ public class MainActivity extends Activity {
             }
         }
     }
+
+    class NotificationReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String temp = intent.getStringExtra("notification_event") + "n" + txtView.getText();
+            txtView.setText(temp);
+        }
+    }
+
+
 }
