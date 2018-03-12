@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (NotificationManagerCompat.getEnabledListenerPackages(this).contains(getApplicationContext().getPackageName())) {
+        if (!NotificationManagerCompat.getEnabledListenerPackages(this).contains(getApplicationContext().getPackageName())) {
             //(piece of code to open right settings
             Intent intent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
             startActivity(intent);

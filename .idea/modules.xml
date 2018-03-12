@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/NoDistraction.iml" filepath="$PROJECT_DIR$/NoDistraction.iml" />
       <module fileurl="file://C:\Users\Cassey\AndroidStudioProjects\NoDistraction1\NoDistraction.iml" filepath="C:\Users\Cassey\AndroidStudioProjects\NoDistraction1\NoDistraction.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NoDistraction1.iml" filepath="$PROJECT_DIR$/NoDistraction1.iml" />
+      <module fileurl="file://C:\Users\Evelijn\AndroidStudioProjects\NoDistraction\NoDistraction1.iml" filepath="C:\Users\Evelijn\AndroidStudioProjects\NoDistraction\NoDistraction1.iml" />
       <module fileurl="file://C:\Users\Evelijn\AndroidStudioProjects\NoDistraction\.idea\NoDistraction1.iml" filepath="C:\Users\Evelijn\AndroidStudioProjects\NoDistraction\.idea\NoDistraction1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
