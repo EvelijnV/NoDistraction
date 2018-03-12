@@ -1,15 +1,19 @@
 package com.nodistracion.evelijn.nodistraction;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -25,6 +29,26 @@ public class MainActivity extends Activity {
         List<AppList> installedApps = getInstalledApps();
         AppAdapter installedAppAdapter = new AppAdapter(MainActivity.this, installedApps);
         userInstalledApps.setAdapter(installedAppAdapter);
+
+
+
+        //this piece below, can't seem to solve it, but it should block apps
+       /* ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
+        List l = am.getRecentTasks(1, ActivityManager.RECENT_WITH_EXCLUDED);
+        Iterator i = l.iterator();
+        PackageManager pm = this.getPackageManager();
+        while (i.hasNext()) {
+            ActivityManager.RunningAppProcessInfo info = (ActivityManager.RunningAppProcessInfo)(i.next());
+            try {
+                CharSequence c = pm.getApplicationLabel(pm.getApplicationInfo(
+                        info.processName, PackageManager.GET_META_DATA));
+                Log.w("LABEL", c.toString());
+                //created the xml blockmessage to show up when an app is opened, perhaps should be used on the place of LABEL?
+            } catch (Exception e) {
+// Name Not Found Exception
+            }
+        }*/
+
     }
 
     @Override
@@ -62,4 +86,7 @@ public class MainActivity extends Activity {
     private boolean isSystemPackage(PackageInfo pkgInfo) {
         return ((pkgInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) ? true : false;
     }
+
+
+
 }
