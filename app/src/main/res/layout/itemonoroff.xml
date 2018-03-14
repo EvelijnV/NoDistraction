@@ -2,8 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#e0edf0"
->
+    tools:context="com.nodistracion.evelijn.nodistraction.MainActivity"
+
+    >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

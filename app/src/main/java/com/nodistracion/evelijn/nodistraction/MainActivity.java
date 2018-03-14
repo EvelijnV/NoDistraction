@@ -12,26 +12,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "bebasneue.otf");
+        setContentView(R.layout.timer);
+        /*Typeface myTypeface = Typeface.createFromAsset(getAssets(), "bebasneue.otf");
         TextView myTextview=findViewById(R.id.textView2);
         myTextview.setTypeface(myTypeface);
         TextView myButton=findViewById(R.id.button);
-        myButton.setTypeface(myTypeface);
+        myButton.setTypeface(myTypeface);/*
         TextView mylist=findViewById(R.id.list_app_name);
         mylist.setTypeface(myTypeface);
-        /*TextView myprofilename=findViewById(R.id.txt_profile_name);
+        TextView myprofilename=findViewById(R.id.txt_profile_name);
         myprofilename.setTypeface(myTypeface);
         TextView mydays=findViewById(R.id.txt_days);
         mydays.setTypeface(myTypeface);
         TextView myonoff=findViewById(R.id.txt_on_off);
-        myonoff.setTypeface(myTypeface);*/
+        myonoff.setTypeface(myTypeface);
         TextView myapp=findViewById(R.id.installed_app_list);
-        myapp.setTypeface(myTypeface);
+        myapp.setTypeface(myTypeface);*/
     }
 
-    public void onClick(View view) {
+    public void onClickSet(View view) {
         Intent intent = new Intent(this, ItemOnorOff.class);
         startActivity(intent);
     }
+
+
 }
