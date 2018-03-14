@@ -16,12 +16,13 @@ public class MainActivity extends AppCompatActivity {
         Typeface myTypeface = Typeface.createFromAsset(getAssets(), "bebasneue.otf");
         TextView myTextview=findViewById(R.id.textView2);
         myTextview.setTypeface(myTypeface);
-
-
+        TextView myButton=findViewById(R.id.button);
+        myButton.setTypeface(myTypeface);
 
     }
-    public void onClickList(View view){
-        Intent intent=new Intent(this,ListofApps.class);
+
+    public void onClick(View view) {
+        Intent intent = new Intent(this, ItemOnorOff.class);
         startActivity(intent);
     }
 }

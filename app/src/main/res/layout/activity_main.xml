@@ -17,13 +17,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/app_name"
+        android:text="No Distraction"
         android:textColor="#545454"
-        android:textSize="45sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02" />
 
     <Button
         android:id="@+id/button"
@@ -33,7 +35,7 @@
         android:layout_marginTop="140dp"
         android:text="Your Apps"
         android:textColor="#545454"
-        android:onClick="onClickList"
+        android:onClick="onClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
