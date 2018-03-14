@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nodistracion.evelijn.nodistraction.ListofApps">
+    android:background="#e0edf0"
+    tools:context="com.nodistracion.evelijn.nodistraction.MainActivity">
 
     <ListView
         android:id="@+id/installed_app_list"
@@ -12,6 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:scrollbars="none" />
+        android:scrollbars="vertical" />
 
     </android.support.constraint.ConstraintLayout>

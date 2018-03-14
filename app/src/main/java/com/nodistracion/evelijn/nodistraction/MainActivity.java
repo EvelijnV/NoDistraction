@@ -18,7 +18,16 @@ public class MainActivity extends AppCompatActivity {
         myTextview.setTypeface(myTypeface);
         TextView myButton=findViewById(R.id.button);
         myButton.setTypeface(myTypeface);
-
+        TextView mylist=findViewById(R.id.list_app_name);
+        mylist.setTypeface(myTypeface);
+        /*TextView myprofilename=findViewById(R.id.txt_profile_name);
+        myprofilename.setTypeface(myTypeface);
+        TextView mydays=findViewById(R.id.txt_days);
+        mydays.setTypeface(myTypeface);
+        TextView myonoff=findViewById(R.id.txt_on_off);
+        myonoff.setTypeface(myTypeface);*/
+        TextView myapp=findViewById(R.id.installed_app_list);
+        myapp.setTypeface(myTypeface);
     }
 
     public void onClick(View view) {
