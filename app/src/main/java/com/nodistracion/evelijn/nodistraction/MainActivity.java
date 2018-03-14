@@ -1,92 +1,29 @@
 package com.nodistracion.evelijn.nodistraction;
 
-import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/bebasneue.otf");
+        TextView myTextview=findViewById(R.id.textView2);
 
-        ListView userInstalledApps = (ListView)findViewById(R.id.installed_app_list);
-
-        List<AppList> installedApps = getInstalledApps();
-        AppAdapter installedAppAdapter = new AppAdapter(MainActivity.this, installedApps);
-        userInstalledApps.setAdapter(installedAppAdapter);
+        myTextview.setTypeface(myTypeface);
 
 
-
-        //this piece below, can't seem to solve it, but it should block apps
-       /* ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
-        List l = am.getRecentTasks(1, ActivityManager.RECENT_WITH_EXCLUDED);
-        Iterator i = l.iterator();
-        PackageManager pm = this.getPackageManager();
-        while (i.hasNext()) {
-            ActivityManager.RunningAppProcessInfo info = (ActivityManager.RunningAppProcessInfo)(i.next());
-            try {
-                CharSequence c = pm.getApplicationLabel(pm.getApplicationInfo(
-                        info.processName, PackageManager.GET_META_DATA));
-                Log.w("LABEL", c.toString());
-                //created the xml blockmessage to show up when an app is opened, perhaps should be used on the place of LABEL?
-            } catch (Exception e) {
-// Name Not Found Exception
-            }
-        }*/
-
+        //this is a test line
+        //ok omdat ij het zegt
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private List<AppList> getInstalledApps() {
-        List<AppList> res = new ArrayList<AppList>();
-        List<PackageInfo> packs = getPackageManager().getInstalledPackages(0);
-        for (int i = 0; i < packs.size(); i++) {
-            PackageInfo p = packs.get(i);
-            if ((isSystemPackage(p) == false || isSystemPackage(p))) { // for now show both system and installed apps
-                String appName = p.applicationInfo.loadLabel(getPackageManager()).toString();
-                Drawable icon = p.applicationInfo.loadIcon(getPackageManager());
-                res.add(new AppList(appName, icon));
-            }
-        }
-        return res;
-    }
-
-    private boolean isSystemPackage(PackageInfo pkgInfo) {
-        return ((pkgInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) ? true : false;
-    }
-
-
-
+public void onClick(View view){
+    Intent intent=new Intent(this, ListofApps.class);
+    startActivity(intent);
+}
 }

@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="16dp"
-        android:textColor="#000000"
+        android:textColor="#545454"
         android:layout_toRightOf="@+id/app_icon"
         android:layout_alignTop="@+id/app_icon"
         android:layout_marginLeft="16dp"
