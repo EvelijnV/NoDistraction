@@ -1,8 +1,10 @@
 package com.nodistracion.evelijn.nodistraction;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,7 +18,10 @@ public class MainActivity extends AppCompatActivity {
         myTextview.setTypeface(myTypeface);
 
 
-        //this is a test line
-        //ok omdat ij het zegt
+
+    }
+    public void onClickList(View view){
+        Intent intent=new Intent(this,ListofApps.class);
+        startActivity(intent);
     }
 }
