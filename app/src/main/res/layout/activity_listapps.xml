@@ -10,32 +10,51 @@
         android:id="@+id/installed_app_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:scrollbars="vertical" />
-    <Button
-        android:id="@+id/timebutton"
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="398dp"
-        android:text="Set Time"
-        android:textColor="#545454"
-        android:onClick="TimerClicked"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-    <Button
-        android:id="@+id/select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select All"
-        android:textColor="#545454"
-        android:onClick="SelectAll"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_alignParentBottom="true" />
+        <Button
+            android:id="@+id/timebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/select"
+            android:layout_alignBottom="@+id/select"
+            android:layout_toStartOf="@+id/deselect"
+            android:onClick="TimerClicked"
+            android:text="Set Time"
+            android:textColor="#545454"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/timebutton"
+            android:onClick="SelectAll"
+            android:text="Select All"
+            android:textColor="#545454"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/deselect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/timebutton"
+            android:layout_alignBottom="@+id/timebutton"
+            android:layout_alignParentEnd="true"
+            android:text="Deselect All"
+            android:textColor="#545454"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 </RelativeLayout>
