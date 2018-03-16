@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
 
         <item android:id="@+id/yourappsbutton"
@@ -7,4 +8,7 @@
         <item android:id="@+id/settimebutton"
             android:title="Set Time" />
     </group>
+    <item android:id="@+id/action_settings" android:title="Settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 </menu>
