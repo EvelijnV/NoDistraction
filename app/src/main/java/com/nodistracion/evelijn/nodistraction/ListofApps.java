@@ -39,7 +39,7 @@ public class ListofApps extends AppCompatActivity {
 
 
 
-    //this piece below, can't seem to solve it, but it should block apps
+        //this piece below, can't seem to solve it, but it should block apps
        /* ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
         List l = am.getRecentTasks(1, ActivityManager.RECENT_WITH_EXCLUDED);
         Iterator i = l.iterator();
@@ -56,7 +56,7 @@ public class ListofApps extends AppCompatActivity {
             }
         }*/
 
-}
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -82,8 +82,8 @@ public class ListofApps extends AppCompatActivity {
         for (int i = 0; i < packs.size(); i++) {
             PackageInfo p = packs.get(i);
             String appName = p.applicationInfo.loadLabel(getPackageManager()).toString();
-                Drawable icon = p.applicationInfo.loadIcon(getPackageManager());
-                res.add(new AppList(appName, icon));
+            Drawable icon = p.applicationInfo.loadIcon(getPackageManager());
+            res.add(new AppList(appName, icon));
 
         }
         return res;
@@ -95,9 +95,15 @@ public class ListofApps extends AppCompatActivity {
 
 
 
+
+
+
+
     public void TimerClicked (View view) {
         {Intent intent=new Intent(this,
                 TimerActivity.class);
             startActivity(intent);}
     }
+
+
 }
