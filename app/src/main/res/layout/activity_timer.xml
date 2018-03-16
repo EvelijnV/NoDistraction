@@ -5,24 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e0edf0"
-
-
-    >
+    android:background="#e0edf0">
 
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="328dp"
         android:layout_height="344dp"
         android:layout_marginBottom="92dp"
-        android:layout_marginEnd="1dp"
         android:layout_marginTop="8dp"
+        android:measureAllChildren="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.343" />
 
     <Button
         android:id="@+id/settimebutton"
