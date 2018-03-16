@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e0edf0"
-    tools:context="com.nodistracion.evelijn.nodistraction.MainActivity">
+    >
 
     <ListView
         android:id="@+id/installed_app_list"
@@ -14,5 +14,20 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:scrollbars="vertical" />
+    <Button
+        android:id="@+id/timebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="398dp"
+        android:text="Set Time"
+        android:textColor="#545454"
+        android:onClick="TimerClicked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
+
+
+
+
 
     </android.support.constraint.ConstraintLayout>

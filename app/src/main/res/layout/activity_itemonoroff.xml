@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#e0edf0"
-    tools:context="com.nodistracion.evelijn.nodistraction.MainActivity"
+
 
     >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="10dp">
 
         <TextView
@@ -42,4 +43,17 @@
             android:textColor="@color/colorPrimary"
             android:textSize="22sp" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/homebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="380dp"
+        android:text="Home"
+        android:textColor="#545454"
+        android:onClick="HomeClicked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </RelativeLayout>

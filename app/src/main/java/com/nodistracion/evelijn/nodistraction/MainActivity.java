@@ -1,39 +1,59 @@
 package com.nodistracion.evelijn.nodistraction;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    private int interactionMode;
+    private Button YourApps;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.timer);
-        /*Typeface myTypeface = Typeface.createFromAsset(getAssets(), "bebasneue.otf");
-        TextView myTextview=findViewById(R.id.textView2);
-        myTextview.setTypeface(myTypeface);
-        TextView myButton=findViewById(R.id.button);
-        myButton.setTypeface(myTypeface);/*
-        TextView mylist=findViewById(R.id.list_app_name);
-        mylist.setTypeface(myTypeface);
-        TextView myprofilename=findViewById(R.id.txt_profile_name);
-        myprofilename.setTypeface(myTypeface);
-        TextView mydays=findViewById(R.id.txt_days);
-        mydays.setTypeface(myTypeface);
-        TextView myonoff=findViewById(R.id.txt_on_off);
-        myonoff.setTypeface(myTypeface);
-        TextView myapp=findViewById(R.id.installed_app_list);
-        myapp.setTypeface(myTypeface);*/
+        setContentView(R.layout.activity_main);
+        YourApps=(Button)findViewById((R.id.button));
+
     }
 
-    public void onClickSet(View view) {
-        Intent intent = new Intent(this, ItemOnorOff.class);
-        startActivity(intent);
+   /* public void onClickMenu(View view) {
+        if(interactionMode==R.id.settimebutton)
+        {Intent intent=new Intent(this,
+                ItemsActivity.class);
+            startActivity(intent);}
+        else{
+            Intent intent=new Intent(this, ListofApps.class);
+            startActivity(intent);
+        }
+    }*/
+   public void YourAppsClicked(View view) {
+      {Intent intent=new Intent(this,
+               ListofApps.class);
+       startActivity(intent);}
     }
 
+
+  /* @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+       // Inflate the menu; this adds items to the action bar if it is present.
+       getMenuInflater().inflate(R.menu.options_menu, menu);
+       // use the xml file
+      //menu.findItem(R.id.settimebutton).setChecked(true);//change?
+      // interactionMode = R.id.settimebutton;
+
+       return true;
+   }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        interactionMode=item.getItemId();
+        item.setChecked(true);
+        return true;
+
+    }*/
 
 }
