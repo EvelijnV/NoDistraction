@@ -1,4 +1,4 @@
-package com.nodistracion.evelijn.nodistraction;
+package com.nodistraction.evelijn.nodistraction;
 
 import org.junit.Test;
 

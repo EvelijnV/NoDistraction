@@ -1,4 +1,4 @@
-package com.nodistracion.evelijn.nodistraction;
+package com.nodistraction.evelijn.nodistraction;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.view.View;
@@ -30,7 +29,7 @@ public class MainActivity extends Activity {
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.kpbird.nlsexample.NOTIFICATION_LISTENER_EXAMPLE");
+        filter.addAction("com.nodistraction.evelijn.nodistraction");
         registerReceiver(nReceiver,filter);
     }
 
@@ -53,12 +52,12 @@ public class MainActivity extends Activity {
             nManager.notify((int)System.currentTimeMillis(),ncomp.build());
         }
         else if(v.getId() == R.id.btnClearNotify){
-            Intent i = new Intent("com.kpbird.nlsexample.NOTIFICATION_LISTENER_SERVICE_EXAMPLE");
+            Intent i = new Intent("com.nodistraction.evelijn.nodistraction");
             i.putExtra("command","clearall");
             sendBroadcast(i);
         }
         else if(v.getId() == R.id.btnListNotify){
-            Intent i = new Intent("com.kpbird.nlsexample.NOTIFICATION_LISTENER_SERVICE_EXAMPLE");
+            Intent i = new Intent("com.nodistraction.evelijn.nodistraction");
             i.putExtra("command","list");
             sendBroadcast(i);
         }
@@ -69,7 +68,7 @@ public class MainActivity extends Activity {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            String temp = intent.getStringExtra("notification_event") + "n" + txtView.getText();
+            String temp = intent.getStringExtra("notification_event") + "\n" + txtView.getText();
             txtView.setText(temp);
         }
     }
