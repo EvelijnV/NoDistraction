@@ -1,4 +1,4 @@
-package com.nodistraction.evelijn.nodistraction;
+package com.nodistraction2.evelijn.nodistraction;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -10,12 +10,16 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.view.View;
+import android.widget.Switch;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends Activity {
 
     private TextView txtView;
     private NotificationReceiver nReceiver;
+    public ArrayList<String> blockedNotifications = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,7 @@ public class MainActivity extends Activity {
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.nodistracion.evelijn.nodistraction");
+        filter.addAction("com.nodistraction2.evelijn.nodistraction");
         registerReceiver(nReceiver,filter);
     }
 
@@ -37,6 +41,21 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(nReceiver);
+    }
+    public void switchClicked(View v){
+        Intent i = new Intent("com.nodistraction2.evelijn.nodistraction");
+        i.putExtra("command","filterChanged");
+        Switch notifySwitch = (Switch) v ;
+        if (notifySwitch.isChecked()){
+            blockedNotifications.add("com.whatsapp");
+        }
+        else{
+            blockedNotifications.remove("com.whatsapp");
+        }
+        i.putExtra("filter",blockedNotifications);
+        sendBroadcast(i);
+        System.out.println(blockedNotifications);
+
     }
 
     public void buttonClicked(View v){
@@ -52,12 +71,12 @@ public class MainActivity extends Activity {
             nManager.notify((int)System.currentTimeMillis(),ncomp.build());
         }
         else if(v.getId() == R.id.btnClearNotify){
-            Intent i = new Intent("com.nodistracion.evelijn.nodistraction");
+            Intent i = new Intent("com.nodistraction2.evelijn.nodistraction");
             i.putExtra("command","clearall");
             sendBroadcast(i);
         }
         else if(v.getId() == R.id.btnListNotify){
-            Intent i = new Intent("com.nodistracion.evelijn.nodistraction");
+            Intent i = new Intent("com.nodistraction2.evelijn.nodistraction");
             i.putExtra("command","list");
             sendBroadcast(i);
         }
