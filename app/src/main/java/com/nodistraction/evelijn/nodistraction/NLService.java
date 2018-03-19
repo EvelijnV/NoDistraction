@@ -31,9 +31,9 @@ public class NLService extends NotificationListenerService {
     public void onNotificationPosted(StatusBarNotification sbn) {
 
         Log.i(TAG,"**********  onNotificationPosted");
-        Log.i(TAG,"ID :" + sbn.getId() + "t" + sbn.getNotification().tickerText + "t" + sbn.getPackageName());
+        Log.i(TAG,"ID :" + sbn.getId() + "\t" + sbn.getNotification().tickerText + "\t" + sbn.getPackageName());
         Intent i = new  Intent("com.nodistracion.evelijn.nodistraction");
-        i.putExtra("notification_event","onNotificationPosted :" + sbn.getPackageName() + "n");
+        i.putExtra("notification_event","onNotificationPosted :" + sbn.getPackageName() + "\n");
         sendBroadcast(i);
 
     }
@@ -41,9 +41,9 @@ public class NLService extends NotificationListenerService {
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
         Log.i(TAG,"********** onNOtificationRemoved");
-        Log.i(TAG,"ID :" + sbn.getId() + "t" + sbn.getNotification().tickerText +"t" + sbn.getPackageName());
+        Log.i(TAG,"ID :" + sbn.getId() + "\t" + sbn.getNotification().tickerText +"\t" + sbn.getPackageName());
         Intent i = new  Intent("com.nodistracion.evelijn.nodistraction");
-        i.putExtra("notification_event","onNotificationRemoved :" + sbn.getPackageName() + "n");
+        i.putExtra("notification_event","onNotificationRemoved :" + sbn.getPackageName() + "\n");
 
         sendBroadcast(i);
     }
@@ -68,7 +68,7 @@ public class NLService extends NotificationListenerService {
                 int i=1;
                 for (StatusBarNotification sbn : NLService.this.getActiveNotifications()) {
                     Intent i2 = new  Intent("com.nodistracion.evelijn.nodistraction");
-                    i2.putExtra("notification_event",i +" " + sbn.getPackageName() + "n");
+                    i2.putExtra("notification_event",i +" " + sbn.getPackageName() + "\n");
                     sendBroadcast(i2);
                     i++;
                 }

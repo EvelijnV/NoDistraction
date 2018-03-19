@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            String temp = intent.getStringExtra("notification_event") + "n" + txtView.getText();
+            String temp = intent.getStringExtra("notification_event") + "\n" + txtView.getText();
             txtView.setText(temp);
         }
     }
