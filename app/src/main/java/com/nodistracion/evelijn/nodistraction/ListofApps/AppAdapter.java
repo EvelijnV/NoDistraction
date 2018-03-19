@@ -1,4 +1,4 @@
-package com.nodistracion.evelijn.nodistraction;
+package com.nodistracion.evelijn.nodistraction.ListofApps;
 
 /**
  * Created by Evelijn on 7-3-2018.
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.nodistracion.evelijn.nodistraction.R;
 
 import java.util.List;
 

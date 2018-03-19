@@ -17,10 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ItemsActivity" />
-        <activity android:name=".ListofApps"></activity>
+        <activity android:name=".ListofApps.ListofApps"></activity>
         <activity android:name=".TimerActivity" />
-
-
 
 
     </application>

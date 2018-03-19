@@ -8,10 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+
+import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
+
 public class MainActivity extends AppCompatActivity {
     private int interactionMode;
     private Button YourApps;
-
 
 
 
@@ -21,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         YourApps=(Button)findViewById((R.id.button));
 
+
+
     }
+
+
 
    /* public void onClickMenu(View view) {
         if(interactionMode==R.id.settimebutton)

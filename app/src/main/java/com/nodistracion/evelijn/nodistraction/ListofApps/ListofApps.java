@@ -1,4 +1,4 @@
-package com.nodistracion.evelijn.nodistraction;
+package com.nodistracion.evelijn.nodistraction.ListofApps;
 
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.nodistracion.evelijn.nodistraction.R;
+import com.nodistracion.evelijn.nodistraction.TimerActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,12 +27,12 @@ public class ListofApps extends AppCompatActivity {
 
     private Button timebutton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listapps);
         timebutton=(Button)findViewById((R.id.timebutton));
-
 
         ListView userInstalledApps = (ListView)findViewById(R.id.installed_app_list);
 
@@ -39,22 +42,6 @@ public class ListofApps extends AppCompatActivity {
 
 
 
-        //this piece below, can't seem to solve it, but it should block apps
-       /* ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
-        List l = am.getRecentTasks(1, ActivityManager.RECENT_WITH_EXCLUDED);
-        Iterator i = l.iterator();
-        PackageManager pm = this.getPackageManager();
-        while (i.hasNext()) {
-            ActivityManager.RunningAppProcessInfo info = (ActivityManager.RunningAppProcessInfo)(i.next());
-            try {
-                CharSequence c = pm.getApplicationLabel(pm.getApplicationInfo(
-                        info.processName, PackageManager.GET_META_DATA));
-                Log.w("LABEL", c.toString());
-                //created the xml blockmessage to show up when an app is opened, perhaps should be used on the place of LABEL?
-            } catch (Exception e) {
-// Name Not Found Exception
-            }
-        }*/
 
     }
 

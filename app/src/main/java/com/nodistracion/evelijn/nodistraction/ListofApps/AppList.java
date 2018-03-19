@@ -1,5 +1,5 @@
 
-package com.nodistracion.evelijn.nodistraction;
+package com.nodistracion.evelijn.nodistraction.ListofApps;
 
 /**
  * Created by Evelijn on 7-3-2018.
