@@ -10,7 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.nodistracion.evelijn.nodistraction.R;
 import com.nodistracion.evelijn.nodistraction.TimerActivity;
@@ -41,9 +45,9 @@ public class ListofApps extends AppCompatActivity {
         userInstalledApps.setAdapter(installedAppAdapter);
 
 
-
-
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -91,6 +95,7 @@ public class ListofApps extends AppCompatActivity {
                 TimerActivity.class);
             startActivity(intent);}
     }
+
 
 
 }

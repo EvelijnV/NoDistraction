@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -34,5 +34,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="2dp"
         android:text="@string/hello_world"/>
+
+
 
 </RelativeLayout>
