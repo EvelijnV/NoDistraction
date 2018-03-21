@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,7 +52,9 @@ public class AppAdapter extends BaseAdapter {
 
             listViewHolder.textInListView = (TextView)convertView.findViewById(R.id.list_app_name);
             listViewHolder.imageInListView = (ImageView)convertView.findViewById(R.id.app_icon);
+            listViewHolder.checkboxInListView = (CheckBox) convertView.findViewById(R.id.checkbox);
             convertView.setTag(listViewHolder);
+
         }else{
             listViewHolder = (ViewHolder)convertView.getTag();
         }
@@ -65,5 +68,6 @@ public class AppAdapter extends BaseAdapter {
 
         TextView textInListView;
         ImageView imageInListView;
+        CheckBox checkboxInListView;
     }
 }

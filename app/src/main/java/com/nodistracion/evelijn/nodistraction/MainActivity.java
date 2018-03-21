@@ -15,6 +15,7 @@ import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
 public class MainActivity extends AppCompatActivity {
     private int interactionMode;
     private Button YourApps;
+    private Button YourBlockLists;
     private ProgressBar Load;
 
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         YourApps=(Button)findViewById((R.id.button));
+        YourBlockLists=(Button)findViewById((R.id.yourlists));
         Load=(ProgressBar)findViewById(R.id.loading);
         Load.setVisibility(View.INVISIBLE);
 
@@ -33,16 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-   /* public void onClickMenu(View view) {
-        if(interactionMode==R.id.settimebutton)
-        {Intent intent=new Intent(this,
-                ItemsActivity.class);
-            startActivity(intent);}
-        else{
-            Intent intent=new Intent(this, ListofApps.class);
-            startActivity(intent);
-        }
-    }*/
+
    public void YourAppsClicked(View view) {
        YourApps.setVisibility(View.INVISIBLE);
        Load.setVisibility(View.VISIBLE);
@@ -53,31 +46,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void YourBlockLists(View view) {
-        YourApps.setVisibility(View.INVISIBLE);
-        Load.setVisibility(View.VISIBLE);
-
         {Intent intent=new Intent(this,
-                ListofApps.class);
+                ItemsActivity.class);
             startActivity(intent);}
     }
 
 
-  /* @Override
-   public boolean onCreateOptionsMenu(Menu menu) {
-       // Inflate the menu; this adds items to the action bar if it is present.
-       getMenuInflater().inflate(R.menu.options_menu, menu);
-       // use the xml file
-      //menu.findItem(R.id.settimebutton).setChecked(true);//change?
-      // interactionMode = R.id.settimebutton;
 
-       return true;
-   }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        item.setChecked(true);
-        return true;
-
-    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
