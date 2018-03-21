@@ -15,9 +15,10 @@
         android:layout_toStartOf="@+id/deselect"
         android:onClick="TimerClicked"
         android:text="Set Time"
-        android:textColor="#545454"
+        android:textColor="#ffffff"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/button"/>
 
     <Button
         android:id="@+id/select"
@@ -27,9 +28,10 @@
         android:layout_toStartOf="@+id/timebutton"
         android:onClick="SelectAll"
         android:text="Select All"
-        android:textColor="#545454"
+        android:textColor="#ffffff"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/button"/>
 
     <Button
         android:id="@+id/deselect"
@@ -39,7 +41,8 @@
         android:layout_alignBottom="@+id/timebutton"
         android:layout_alignParentEnd="true"
         android:text="Deselect All"
-        android:textColor="#545454"
+        android:textColor="#ffffff"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/button"/>
 </LinearLayout>
