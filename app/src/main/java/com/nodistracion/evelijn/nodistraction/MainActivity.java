@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private Button YourBlockLists;
     private ProgressBar Load;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +26,7 @@ public class MainActivity extends AppCompatActivity {
         YourBlockLists=(Button)findViewById((R.id.yourlists));
         Load=(ProgressBar)findViewById(R.id.loading);
         Load.setVisibility(View.INVISIBLE);
-
-
-
     }
-
-
-
 
    public void YourAppsClicked(View view) {
        YourApps.setVisibility(View.INVISIBLE);
@@ -50,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 ItemsActivity.class);
             startActivity(intent);}
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

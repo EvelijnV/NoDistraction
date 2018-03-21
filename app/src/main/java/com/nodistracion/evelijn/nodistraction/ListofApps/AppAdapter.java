@@ -70,4 +70,5 @@ public class AppAdapter extends BaseAdapter {
         ImageView imageInListView;
         CheckBox checkboxInListView;
     }
+
 }
