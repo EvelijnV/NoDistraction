@@ -1,4 +1,4 @@
-package com.nodistraction2.evelijn.nodistraction;
+package com.nodistraction3.evelijn.nodistraction;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.nodistraction2.evelijn.nodistraction");
+        filter.addAction("com.nodistraction3.evelijn.nodistraction");
         registerReceiver(nReceiver,filter);
     }
 
@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
         unregisterReceiver(nReceiver);
     }
     public void switchClicked(View v){
-        Intent i = new Intent("com.nodistraction2.evelijn.nodistraction");
+        Intent i = new Intent("com.nodistraction3.evelijn.nodistraction");
         i.putExtra("command","filterChanged");
         Switch notifySwitch = (Switch) v ;
         if (notifySwitch.isChecked()){
@@ -71,12 +71,12 @@ public class MainActivity extends Activity {
             nManager.notify((int)System.currentTimeMillis(),ncomp.build());
         }
         else if(v.getId() == R.id.btnClearNotify){
-            Intent i = new Intent("com.nodistraction2.evelijn.nodistraction");
+            Intent i = new Intent("com.nodistraction3.evelijn.nodistraction");
             i.putExtra("command","clearall");
             sendBroadcast(i);
         }
         else if(v.getId() == R.id.btnListNotify){
-            Intent i = new Intent("com.nodistraction2.evelijn.nodistraction");
+            Intent i = new Intent("com.nodistraction3.evelijn.nodistraction");
             i.putExtra("command","list");
             sendBroadcast(i);
         }
