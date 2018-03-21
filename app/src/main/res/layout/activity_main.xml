@@ -10,7 +10,7 @@
         android:text="Create Notification"
         android:id="@+id/btnCreateNotify"
         android:onClick="buttonClicked"
-        android:layout_below="@id/Switch"
+        android:layout_below="@id/AllNotifySwitch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"/>
 
@@ -50,11 +50,20 @@
         android:layout_below="@+id/btnClearNotify"
         android:layout_alignLeft="@+id/btnClearNotify"
         android:layout_alignRight="@+id/btnClearNotify"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="select apps"
+        android:layout_alignParentTop="true"
+        android:id="@+id/btnSelectApps"
+        android:onClick="buttonClicked"/>
+
     <Switch
-        android:id="@+id/Switch"
+        android:id="@+id/AllNotifySwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/btnClearNotify"
-        android:text="block whatsapp notifications"
-        android:onClick="switchClicked"/>
+        android:text="block all notifications"
+        android:onClick="switchClicked"
+        android:layout_below="@id/btnSelectApps"/>
 </RelativeLayout>

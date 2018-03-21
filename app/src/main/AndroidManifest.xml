@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nodistraction3.evelijn.nodistraction">
+    package="com.nodistraction4.evelijn.nodistraction">
 
     <uses-sdk
         android:minSdkVersion="18"
-        android:targetSdkVersion="23"/>
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.nodistraction3.evelijn.nodistraction.MainActivity"
+        <activity
+            android:name="com.nodistraction4.evelijn.nodistraction.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +26,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.nodistraction3.evelijn.nodistraction.NLService"
+
+        <service
+            android:name="com.nodistraction4.evelijn.nodistraction.NLService"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService"></action>
+                <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name="com.nodistraction4.evelijn.nodistraction.SelectAppsActivity"
+            android:label="@string/title_activity_select_apps" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.nodistraction3.evelijn.nodistraction;
+package com.nodistraction4.evelijn.nodistraction;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -14,6 +15,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends Activity {
 
@@ -33,7 +35,7 @@ public class MainActivity extends Activity {
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.nodistraction3.evelijn.nodistraction");
+        filter.addAction("com.nodistraction4.evelijn.nodistraction");
         registerReceiver(nReceiver,filter);
     }
 
@@ -43,18 +45,28 @@ public class MainActivity extends Activity {
         unregisterReceiver(nReceiver);
     }
     public void switchClicked(View v){
-        Intent i = new Intent("com.nodistraction3.evelijn.nodistraction");
+        Intent i = new Intent("com.nodistraction4.evelijn.nodistraction");
         i.putExtra("command","filterChanged");
         Switch notifySwitch = (Switch) v ;
+
+        // put all apps in the blockedNotifications when switch is on
+        List<PackageInfo> packs = getPackageManager().getInstalledPackages(0);
+        ArrayList<String> allPackageNames = new ArrayList<>();
+        for (int j=0; j<packs.size(); j++){
+            PackageInfo p = packs.get(j);
+            allPackageNames.add(p.packageName);
+        }
         if (notifySwitch.isChecked()){
-            blockedNotifications.add("com.whatsapp");
+            blockedNotifications.addAll(allPackageNames);
         }
         else{
-            blockedNotifications.remove("com.whatsapp");
+            blockedNotifications.removeAll(allPackageNames);
         }
         i.putExtra("filter",blockedNotifications);
         sendBroadcast(i);
         System.out.println(blockedNotifications);
+
+
 
     }
 
@@ -71,14 +83,18 @@ public class MainActivity extends Activity {
             nManager.notify((int)System.currentTimeMillis(),ncomp.build());
         }
         else if(v.getId() == R.id.btnClearNotify){
-            Intent i = new Intent("com.nodistraction3.evelijn.nodistraction");
+            Intent i = new Intent("com.nodistraction4.evelijn.nodistraction");
             i.putExtra("command","clearall");
             sendBroadcast(i);
         }
         else if(v.getId() == R.id.btnListNotify){
-            Intent i = new Intent("com.nodistraction3.evelijn.nodistraction");
+            Intent i = new Intent("com.nodistraction4.evelijn.nodistraction");
             i.putExtra("command","list");
             sendBroadcast(i);
+        }
+        else if(v.getId() == R.id.btnSelectApps){
+            Intent i = new Intent(this,SelectAppsActivity.class);
+            startActivity(i);
         }
 
     }

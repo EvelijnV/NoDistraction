@@ -1,4 +1,4 @@
-package com.nodistraction3.evelijn.nodistraction;
+package com.nodistraction4.evelijn.nodistraction;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
