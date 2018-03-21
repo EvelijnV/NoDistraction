@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
+
 /**
  * Created by Cassey on 14/03/2018.
  */
@@ -37,13 +39,29 @@ public class ItemsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        switch (item.getItemId()) {
+            case R.id.yourappsbutton:
+            {Intent intent=new Intent(this,
+                    ListofApps.class);
+                startActivity(intent);}
             return true;
+            case R.id.settimebutton:
+            {Intent intent=new Intent(this,
+                    TimerActivity.class);
+                startActivity(intent);}
+            return true;
+            /*case R.id.action_settings:
+            {Intent intent=new Intent(this,
+                    Settings.class);
+                startActivity(intent);}
+                return true;*/
+            case R.id.homebutton:
+            {Intent intent=new Intent(this,
+                    MainActivity.class);
+                startActivity(intent);}
+            return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

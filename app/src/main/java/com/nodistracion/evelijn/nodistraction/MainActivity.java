@@ -52,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
        startActivity(intent);}
     }
 
+    public void YourBlockLists(View view) {
+        YourApps.setVisibility(View.INVISIBLE);
+        Load.setVisibility(View.VISIBLE);
+
+        {Intent intent=new Intent(this,
+                ListofApps.class);
+            startActivity(intent);}
+    }
+
 
   /* @Override
    public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        interactionMode=item.getItemId();
         item.setChecked(true);
         return true;
 
@@ -79,14 +87,30 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.yourappsbutton:
+            {Intent intent=new Intent(this,
+                    ListofApps.class);
+                startActivity(intent);}
+                return true;
+            case R.id.settimebutton:
+            {Intent intent=new Intent(this,
+                    TimerActivity.class);
+                startActivity(intent);}
+                return true;
+            /*case R.id.action_settings:
+            {Intent intent=new Intent(this,
+                    Settings.class);
+                startActivity(intent);}
+                return true;*/
+            case R.id.homebutton:
+            {Intent intent=new Intent(this,
+                    MainActivity.class);
+                startActivity(intent);}
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
     }
 
-}
+}}
+

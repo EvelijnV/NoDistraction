@@ -9,7 +9,8 @@
             android:title="Set Time" />
         <item android:id="@+id/homebutton"
             android:title="Home"/>
-        <item android:id="@+id/action_settings" android:title="Settings"
+        <item android:id="@+id/action_settings"
+            android:title="Settings"
             android:orderInCategory="100"
             app:showAsAction="never" />
 
