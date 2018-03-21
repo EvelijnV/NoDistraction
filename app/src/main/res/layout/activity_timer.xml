@@ -10,10 +10,11 @@
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="328dp"
-        android:layout_height="344dp"
+        android:layout_height="210dp"
         android:layout_marginBottom="92dp"
         android:layout_marginTop="8dp"
         android:measureAllChildren="false"
+        android:timePickerMode="spinner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,13 +27,13 @@
         android:id="@+id/settimebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:layout_marginStart="116dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/button"
+        android:onClick="onClickSet"
         android:text="Set"
         android:textColor="#ffffff"
-        android:onClick="onClickSet"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/button"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:onClick="YourAppsClicked"
+        android:text="Your Apps"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/yourlists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button"
+        android:layout_alignBottom="@+id/button"
+        android:layout_toStartOf="@+id/button"
+        android:background="@drawable/button"
+        android:onClick="YourBlockLists"
+        android:text="Your Blocklists"
+        android:textColor="#ffffff"
+         />
+
+
+</LinearLayout>
