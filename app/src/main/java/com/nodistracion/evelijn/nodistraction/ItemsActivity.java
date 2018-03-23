@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
 
@@ -18,12 +19,24 @@ import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
 public class ItemsActivity extends AppCompatActivity {
 
     private Button homebutton;
+    private TextView On1;
+    private TextView On2;
+    private TextView Off1;
+    private TextView Off2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itemonoroff);
         homebutton=(Button)findViewById((R.id.homebutton));
+        On1=(TextView)findViewById(R.id.txt_on1);
+        On1.setVisibility(View.INVISIBLE);
+        On2=(TextView)findViewById(R.id.txt_on2);
+        On2.setVisibility(View.INVISIBLE);
+
+
+
+
 }
     public void HomeClicked (View view) {
         {Intent intent=new Intent(this,
@@ -64,4 +77,6 @@ public class ItemsActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

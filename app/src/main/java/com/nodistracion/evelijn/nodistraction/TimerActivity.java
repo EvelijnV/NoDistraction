@@ -28,6 +28,7 @@ public class TimerActivity extends AppCompatActivity{
     public int selectedHour;
     public int selectedMinute;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,24 @@ public class TimerActivity extends AppCompatActivity{
         selectedMinute = timepicker.getMinute();
         Intent intent = new Intent(this, ItemsActivity.class);
             startActivity(intent);
+
+        /*Intent intent1 = new Intent(getApplicationContext(), ItemsActivity.class);
+        //Create a bundle object
+        Bundle b = new Bundle();
+
+        //Inserts a String value into the mapping of this Bundle
+        b.putString("On", on1.getText().toString());
+        b.putString("age", age.getText().toString());
+        int id = genderRadioGroup.getCheckedRadioButtonId();
+        TextView On1 = (TextView) findViewById(id);
+        b.putString("gender", radioButton.getText().toString());
+
+        //Add the bundle to the intent.
+        intent.putExtras(b);
+
+        //start the DisplayActivity
+        startActivity(intent1);*/
+
     }
 
     @Override
