@@ -1,6 +1,7 @@
 package com.nodistracion.evelijn.nodistraction;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 
 import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button YourApps;
     private Button YourBlockLists;
     private ProgressBar Load;
+    private TextView Timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,27 @@ public class MainActivity extends AppCompatActivity {
         YourBlockLists=(Button)findViewById((R.id.yourlists));
         Load=(ProgressBar)findViewById(R.id.loading);
         Load.setVisibility(View.INVISIBLE);
+        /*Timer=(TextView)findViewById(R.id.timer);
+
+        button.setOnClickListener(new View.OnClickListener(){
+          @Override
+            public void onClick(View view){
+              int seconds=Integer.valueOf()
+              CountDownTimer countDownTimer=new CountDownTimer(//time*1000,1000) {
+                  @Override
+                  public void onTick(long millisUntilFinished) {
+                      textview.getText("seconds:" + int(millisUntilFinished/1000));
+
+                  }
+
+                  @Override
+                  public void onFinish(){
+                      textView.getText("Dobby is a Free elf");
+
+                  }
+              };
+          }
+        });*/
     }
 
    public void YourAppsClicked(View view) {
