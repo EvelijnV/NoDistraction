@@ -3,6 +3,7 @@ package com.nodistracion.evelijn.nodistraction;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +17,7 @@ import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
  * Created by Cassey on 14/03/2018.
  */
 
-public class ItemsActivity extends AppCompatActivity {
+public class ItemsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button homebutton;
     private TextView On1;
@@ -24,6 +25,15 @@ public class ItemsActivity extends AppCompatActivity {
     private TextView Off1;
     private TextView Off2;
     int OnorOff;
+    int selectedMinute;
+    int selectedHour;
+
+    private CountDownTimer countDownTimer;
+    private boolean timerHasStarted = false;
+    private Button startB;
+    public TextView text;
+    private final long startTime = 30 * 1000;
+    private final long interval = 1 * 1000;
 
 
     @Override
@@ -31,6 +41,16 @@ public class ItemsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itemonoroff);
         homebutton=(Button)findViewById((R.id.homebutton));
+
+        selectedMinute = getIntent().getIntExtra("selectedMinute", 0);
+        selectedHour = getIntent().getIntExtra("selectedHour", 0);
+
+        startB = (Button) this.findViewById(R.id.button);
+        startB.setOnClickListener(this);
+        text = (TextView) this.findViewById(R.id.timer);
+        countDownTimer = new MyCountDownTimer(startTime, interval);
+        text.setText(text.getText() + String.valueOf(startTime / 1000));
+
         OnorOff = getIntent().getIntExtra("OnorOff", 0);
 
         if(OnorOff!=1){
@@ -49,6 +69,34 @@ public class ItemsActivity extends AppCompatActivity {
             Off2.setVisibility(View.INVISIBLE);}
     }
 
+    @Override
+    public void onClick(View v) {
+        if (!timerHasStarted) {
+            countDownTimer.start();
+            timerHasStarted = true;
+            startB.setText("STOP");
+        } else {
+            countDownTimer.cancel();
+            timerHasStarted = false;
+            startB.setText("RESTART");
+        }
+    }
+
+    public class MyCountDownTimer extends CountDownTimer {
+        public MyCountDownTimer(long startTime, long interval) {
+            super(startTime, interval);
+        }
+
+        @Override
+        public void onFinish() {
+            text.setText("Dobby is a Free Elf!");
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            text.setText("" + millisUntilFinished / 1000);
+        }
+    }
 
 
 

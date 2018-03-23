@@ -20,37 +20,22 @@ public class MainActivity extends AppCompatActivity {
     private Button YourBlockLists;
     private ProgressBar Load;
     private TextView Timer;
+    CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        YourApps=(Button)findViewById((R.id.button));
-        YourBlockLists=(Button)findViewById((R.id.yourlists));
-        Load=(ProgressBar)findViewById(R.id.loading);
+        YourApps = (Button) findViewById((R.id.button));
+        YourBlockLists = (Button) findViewById((R.id.yourlists));
+        Load = (ProgressBar) findViewById(R.id.loading);
         Load.setVisibility(View.INVISIBLE);
-        /*Timer=(TextView)findViewById(R.id.timer);
 
-        button.setOnClickListener(new View.OnClickListener(){
-          @Override
-            public void onClick(View view){
-              int seconds=Integer.valueOf()
-              CountDownTimer countDownTimer=new CountDownTimer(//time*1000,1000) {
-                  @Override
-                  public void onTick(long millisUntilFinished) {
-                      textview.getText("seconds:" + int(millisUntilFinished/1000));
+        }
 
-                  }
 
-                  @Override
-                  public void onFinish(){
-                      textView.getText("Dobby is a Free elf");
 
-                  }
-              };
-          }
-        });*/
-    }
+
 
    public void YourAppsClicked(View view) {
        YourApps.setVisibility(View.INVISIBLE);

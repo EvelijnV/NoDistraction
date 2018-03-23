@@ -16,6 +16,9 @@ import android.widget.TimePicker;
 
 import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * Created by Cassey on 16/03/2018.
  */
@@ -44,8 +47,20 @@ public class TimerActivity extends AppCompatActivity{
         selectedHour = timepicker.getHour();
         selectedMinute = timepicker.getMinute();
         OnorOff=1;
+
+
+       /* Calendar c = Calendar.getInstance();
+        System.out.println("Current time =&gt; "+c.getTime());
+
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+        String CurrentTime = df.format(c.getTime());*/
+
+
+
         Intent intent = new Intent(this, ItemsActivity.class);
         intent.putExtra("OnorOff", OnorOff);
+        intent.putExtra("selectedMinute", selectedMinute);
+        intent.putExtra("selectedHour", selectedHour);
             startActivity(intent);
 
 
