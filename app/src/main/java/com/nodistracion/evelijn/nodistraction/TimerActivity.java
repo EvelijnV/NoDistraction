@@ -23,6 +23,7 @@ import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
 public class TimerActivity extends AppCompatActivity{
 
 
+    public  int OnorOff;
     private Button settimebutton;
     private TimePicker timepicker;
     public int selectedHour;
@@ -42,25 +43,13 @@ public class TimerActivity extends AppCompatActivity{
     public void onClickSet (View view) {
         selectedHour = timepicker.getHour();
         selectedMinute = timepicker.getMinute();
+        OnorOff=1;
         Intent intent = new Intent(this, ItemsActivity.class);
+        intent.putExtra("OnorOff", OnorOff);
             startActivity(intent);
 
-        /*Intent intent1 = new Intent(getApplicationContext(), ItemsActivity.class);
-        //Create a bundle object
-        Bundle b = new Bundle();
 
-        //Inserts a String value into the mapping of this Bundle
-        b.putString("On", on1.getText().toString());
-        b.putString("age", age.getText().toString());
-        int id = genderRadioGroup.getCheckedRadioButtonId();
-        TextView On1 = (TextView) findViewById(id);
-        b.putString("gender", radioButton.getText().toString());
 
-        //Add the bundle to the intent.
-        intent.putExtras(b);
-
-        //start the DisplayActivity
-        startActivity(intent1);*/
 
     }
 

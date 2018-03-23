@@ -23,21 +23,35 @@ public class ItemsActivity extends AppCompatActivity {
     private TextView On2;
     private TextView Off1;
     private TextView Off2;
+    int OnorOff;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itemonoroff);
         homebutton=(Button)findViewById((R.id.homebutton));
+        OnorOff = getIntent().getIntExtra("OnorOff", 0);
+
+        if(OnorOff!=1){
         On1=(TextView)findViewById(R.id.txt_on1);
         On1.setVisibility(View.INVISIBLE);
         On2=(TextView)findViewById(R.id.txt_on2);
-        On2.setVisibility(View.INVISIBLE);
+        On2.setVisibility(View.INVISIBLE);}
+        else{
+            On1=(TextView)findViewById(R.id.txt_on1);
+            On1.setVisibility(View.VISIBLE);
+            On2=(TextView)findViewById(R.id.txt_on2);
+            On2.setVisibility(View.VISIBLE);
+            Off1=(TextView)findViewById(R.id.txt_off1);
+            Off1.setVisibility(View.INVISIBLE);
+            Off2=(TextView)findViewById(R.id.txt_off2);
+            Off2.setVisibility(View.INVISIBLE);}
+    }
 
 
 
 
-}
     public void HomeClicked (View view) {
         {Intent intent=new Intent(this,
                 MainActivity.class);

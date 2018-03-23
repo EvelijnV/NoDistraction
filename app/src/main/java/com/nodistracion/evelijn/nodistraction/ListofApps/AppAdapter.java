@@ -48,7 +48,7 @@ public class AppAdapter extends BaseAdapter {
         ViewHolder listViewHolder;
         if(convertView == null){
             listViewHolder = new ViewHolder();
-            convertView = layoutInflater.inflate(R.layout.activity_installedapp, parent, false);
+            convertView = layoutInflater.inflate(R.layout.installedapp, parent, false);
 
             listViewHolder.textInListView = (TextView)convertView.findViewById(R.id.list_app_name);
             listViewHolder.imageInListView = (ImageView)convertView.findViewById(R.id.app_icon);
