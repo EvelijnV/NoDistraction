@@ -53,7 +53,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="select allowed apps"
+        android:text="select apps"
         android:layout_alignParentTop="true"
         android:id="@+id/btnSelectApps"
         android:onClick="buttonClicked"/>
