@@ -25,15 +25,14 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
     private TextView Off1;
     private TextView Off2;
     int OnorOff;
-    int selectedMinute;
-    int selectedHour;
+
     long diffTime;
 
     private CountDownTimer countDownTimer;
     private boolean timerHasStarted = false;
     private Button startB;
     public TextView text;
-    private final long startTime = diffTime;
+    //private final long startTime=diffTime;
     private final long interval = 1 * 1000;
 
 
@@ -43,17 +42,16 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_itemonoroff);
         homebutton=(Button)findViewById((R.id.homebutton));
 
-        selectedMinute = getIntent().getIntExtra("selectedMinute", 0);
-        selectedHour = getIntent().getIntExtra("selectedHour", 0);
+        OnorOff = getIntent().getIntExtra("OnorOff", 0);
+        diffTime=getIntent().getLongExtra("diffTime", 0);
 
         startB = (Button) this.findViewById(R.id.button);
         startB.setOnClickListener(this);
         text = (TextView) this.findViewById(R.id.timer);
-        countDownTimer = new MyCountDownTimer(startTime, interval);
-        text.setText(text.getText() + String.valueOf(startTime / 1000));
+        countDownTimer = new MyCountDownTimer(diffTime, interval);
+        text.setText(text.getText() + String.valueOf(diffTime / 1000));
 
-        OnorOff = getIntent().getIntExtra("OnorOff", 0);
-        diffTime=getIntent().getLongExtra("diffTime", 0);
+
        // System.out.println();
 
         if(OnorOff!=1){
@@ -86,8 +84,8 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public class MyCountDownTimer extends CountDownTimer {
-        public MyCountDownTimer(long startTime, long interval) {
-            super(startTime, interval);
+        public MyCountDownTimer(long diffTime, long interval) {
+            super(diffTime, interval);
         }
 
         @Override

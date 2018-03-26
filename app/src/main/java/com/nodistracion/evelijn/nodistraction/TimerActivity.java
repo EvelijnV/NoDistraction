@@ -54,7 +54,7 @@ public class TimerActivity extends AppCompatActivity implements OnTimeChangedLis
 
         timepicker.setOnTimeChangedListener((OnTimeChangedListener) this);
 
-        //sysCurrent = (TextView) findViewById(R.id.systemTime);
+        sysCurrent = (TextView) findViewById(R.id.systemTime);
         difference = (TextView) findViewById(R.id.difference);
 
     }
@@ -70,18 +70,19 @@ public class TimerActivity extends AppCompatActivity implements OnTimeChangedLis
         long diffTime = 0;
 
         calendar = Calendar.getInstance();
-        //sysCurrent.setText(currentTime +"");
+
 
         calendar.setTimeInMillis(currentTime);
         calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
         calendar.set(Calendar.MINUTE, selectedMinute);
 
         diffTime = calendar.getTimeInMillis()- currentTime;
+        sysCurrent.setText(diffTime +"");
+
 
         difference.setText(String.format("%02d:%02d",
                 diffTime/hoursInMilis,
                 (diffTime%hoursInMilis)/minutesInMilis));
-
 
 
 
@@ -97,7 +98,7 @@ public class TimerActivity extends AppCompatActivity implements OnTimeChangedLis
         long diffTime = 0;
 
         calendar = Calendar.getInstance();
-        //sysCurrent.setText(currentTime +"");
+
 
         calendar.setTimeInMillis(currentTime);
         calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
