@@ -36,7 +36,7 @@
         </service>
 
         <activity
-            android:name="com.nodistraction4.evelijn.nodistraction.SelectAppsActivity"
+            android:name="com.nodistraction4.evelijn.nodistraction.ListofAppsActivity"
             android:label="@string/title_activity_select_apps" />
     </application>
 

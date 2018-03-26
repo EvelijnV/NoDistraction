@@ -47,6 +47,7 @@ public class MainActivity extends Activity {
     public void switchClicked(View v){
         Intent i = new Intent("com.nodistraction4.evelijn.nodistraction");
         i.putExtra("command","filterChanged");
+
         Switch notifySwitch = (Switch) v ;
 
         // put all apps in the blockedNotifications when switch is on
@@ -93,7 +94,7 @@ public class MainActivity extends Activity {
             sendBroadcast(i);
         }
         else if(v.getId() == R.id.btnSelectApps){
-            Intent i = new Intent(this,SelectAppsActivity.class);
+            Intent i = new Intent(this,ListofAppsActivity.class);
             startActivity(i);
         }
 
