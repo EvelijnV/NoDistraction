@@ -33,7 +33,7 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
     private Button startB;
     public TextView text;
     //private final long startTime=diffTime;
-    private final long interval = 1 * 1000;
+    private final long interval = 1000;
 
 
     @Override
@@ -45,11 +45,19 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
         OnorOff = getIntent().getIntExtra("OnorOff", 0);
         diffTime=getIntent().getLongExtra("diffTime", 0);
 
+
         startB = (Button) this.findViewById(R.id.button);
         startB.setOnClickListener(this);
         text = (TextView) this.findViewById(R.id.timer);
         countDownTimer = new MyCountDownTimer(diffTime, interval);
-        text.setText(text.getText() + String.valueOf(diffTime / 1000));
+        int hours = (int) ((diffTime / (1000 * 60 * 60)) % 24);
+        int minutes = (int) ((diffTime / (1000 * 60)) % 60);
+        int seconds = (int) (diffTime / 1000) % 60;
+
+        text.setText(String.format("%02d", hours)
+                + ":" + String.format("%02d", minutes)
+                + ":" + String.format("%02d", seconds));
+        //text.setText(text.getText() + String.valueOf(diffTime / 1000));
 
 
        // System.out.println();
@@ -72,14 +80,10 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if (!timerHasStarted) {
+        if(!timerHasStarted) {
             countDownTimer.start();
             timerHasStarted = true;
-            startB.setText("STOP");
-        } else {
-            countDownTimer.cancel();
-            timerHasStarted = false;
-            startB.setText("RESTART");
+            startB.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -95,7 +99,15 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
 
         @Override
         public void onTick(long millisUntilFinished) {
-            text.setText("" + millisUntilFinished / 1000);
+
+            int hours = (int) ((millisUntilFinished / (1000 * 60 * 60)) % 24);
+            int minutes = (int) ((millisUntilFinished / (1000 * 60)) % 60);
+            int seconds = (int) (millisUntilFinished / 1000) % 60;
+
+            text.setText(String.format("%02d", hours)
+                    + ":" + String.format("%02d", minutes)
+                    + ":" + String.format("%02d", seconds));
+            //text.setText("" + millisUntilFinished / 1000);
         }
     }
 
