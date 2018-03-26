@@ -27,12 +27,13 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
     int OnorOff;
     int selectedMinute;
     int selectedHour;
+    long diffTime;
 
     private CountDownTimer countDownTimer;
     private boolean timerHasStarted = false;
     private Button startB;
     public TextView text;
-    private final long startTime = 30 * 1000;
+    private final long startTime = diffTime;
     private final long interval = 1 * 1000;
 
 
@@ -52,6 +53,8 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
         text.setText(text.getText() + String.valueOf(startTime / 1000));
 
         OnorOff = getIntent().getIntExtra("OnorOff", 0);
+        diffTime=getIntent().getLongExtra("diffTime", 0);
+       // System.out.println();
 
         if(OnorOff!=1){
         On1=(TextView)findViewById(R.id.txt_on1);

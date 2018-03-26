@@ -6,4 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="set_time">Set Time</string>
     <string name="on1">On</string>
+    <string name="system_current_time">System Current Time</string>
+    <string name="difference">Difference</string>
+    <string name="calculate_difference">Calculate difference</string>
 </resources>

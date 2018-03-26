@@ -13,24 +13,35 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import java.util.Calendar;
+import android.widget.TimePicker.OnTimeChangedListener;
 
 import com.nodistracion.evelijn.nodistraction.ListofApps.ListofApps;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Cassey on 16/03/2018.
  */
 
-public class TimerActivity extends AppCompatActivity{
+public class TimerActivity extends AppCompatActivity implements OnTimeChangedListener{
 
 
     public  int OnorOff;
     private Button settimebutton;
+    private Button calculate;
     private TimePicker timepicker;
     public int selectedHour;
     public int selectedMinute;
+    private TextView sysCurrent;
+    private TextView difference;
+    private Calendar calendar;
+
+    private static final int hoursInMilis = 3600000;
+    private static final int minutesInMilis = 60000;
+
 
 
     @Override
@@ -41,26 +52,65 @@ public class TimerActivity extends AppCompatActivity{
         timepicker = findViewById(R.id.timePicker);
         timepicker.setIs24HourView(true);
 
+        timepicker.setOnTimeChangedListener((OnTimeChangedListener) this);
+
+        //sysCurrent = (TextView) findViewById(R.id.systemTime);
+        difference = (TextView) findViewById(R.id.difference);
+
     }
 
+    public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+        selectedHour = hourOfDay;
+        selectedMinute = minute;
+    }
+
+    public void calculate(View view)
+    {
+        long currentTime = System.currentTimeMillis();
+        long diffTime = 0;
+
+        calendar = Calendar.getInstance();
+        //sysCurrent.setText(currentTime +"");
+
+        calendar.setTimeInMillis(currentTime);
+        calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
+        calendar.set(Calendar.MINUTE, selectedMinute);
+
+        diffTime = calendar.getTimeInMillis()- currentTime;
+
+        difference.setText(String.format("%02d:%02d",
+                diffTime/hoursInMilis,
+                (diffTime%hoursInMilis)/minutesInMilis));
+
+
+
+
+    }
+
+
     public void onClickSet (View view) {
-        selectedHour = timepicker.getHour();
-        selectedMinute = timepicker.getMinute();
+       /* selectedHour = timepicker.getHour();
+        selectedMinute = timepicker.getMinute();*/
         OnorOff=1;
 
+        long currentTime = System.currentTimeMillis();
+        long diffTime = 0;
 
-       /* Calendar c = Calendar.getInstance();
-        System.out.println("Current time =&gt; "+c.getTime());
+        calendar = Calendar.getInstance();
+        //sysCurrent.setText(currentTime +"");
 
-        SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
-        String CurrentTime = df.format(c.getTime());*/
+        calendar.setTimeInMillis(currentTime);
+        calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
+        calendar.set(Calendar.MINUTE, selectedMinute);
+        diffTime = calendar.getTimeInMillis()- currentTime;
+
+
 
 
 
         Intent intent = new Intent(this, ItemsActivity.class);
         intent.putExtra("OnorOff", OnorOff);
-        intent.putExtra("selectedMinute", selectedMinute);
-        intent.putExtra("selectedHour", selectedHour);
+        intent.putExtra("diffTime", diffTime);
             startActivity(intent);
 
 
