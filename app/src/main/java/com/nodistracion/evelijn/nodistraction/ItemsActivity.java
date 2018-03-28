@@ -95,6 +95,11 @@ public class ItemsActivity extends AppCompatActivity implements View.OnClickList
         @Override
         public void onFinish() {
             text.setText("Dobby is a Free Elf!");
+
+            {Intent done=new Intent(this,
+                    MainActivity.class);
+                done.putExtra("Done", Done);//the blocking is done
+                startActivity(done);}
         }
 
         @Override
