@@ -1,16 +1,13 @@
-package com.nodistraction4.evelijn.nodistraction;
+package com.nodistraction7.evelijn.nodistraction;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -19,8 +16,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
-
-import com.nodistraction4.evelijn.nodistraction.AppList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +28,7 @@ public class ListofAppsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listof_apps);
+        //appsOn = getIntent().getStringArrayListExtra("filter");
         //Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/bebasneue.otf");
         //TextView myTextview=findViewById(R.id.installed_app_list);
         // myTextview.setTypeface(myTypeface);
@@ -53,7 +49,7 @@ public class ListofAppsActivity extends Activity {
                 String appName = p.applicationInfo.loadLabel(getPackageManager()).toString();
                 Drawable icon = p.applicationInfo.loadIcon(getPackageManager());
                 String packageName = p.applicationInfo.packageName;
-                res.add(new com.nodistraction4.evelijn.nodistraction.AppList(appName,packageName, icon));
+                res.add(new com.nodistraction7.evelijn.nodistraction.AppList(appName,packageName, icon));
             }
         }
         return res;
@@ -65,7 +61,7 @@ public class ListofAppsActivity extends Activity {
 
     public class AppAdapter extends BaseAdapter {
         private LayoutInflater layoutInflater;
-        private List<com.nodistraction4.evelijn.nodistraction.AppList> listStorage;
+        private List<com.nodistraction7.evelijn.nodistraction.AppList> listStorage;
 
         public AppAdapter(Context context, List<AppList> customizedListView) {
             layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -139,6 +135,10 @@ public class ListofAppsActivity extends Activity {
     }
 
     public void OnSaveAppsBtnClicked (View v){
+        Intent i2 = new Intent("com.nodistraction7.evelijn.nodistraction");
+        i2.putExtra("command", "filterChanged");
+        i2.putExtra("filter",appsOn);
+        sendBroadcast(i2);
         Intent i = new Intent(this,MainActivity.class);
         i.putExtra("filter",appsOn);
         System.out.println("go back to main, new list of apps is:  " + appsOn);
