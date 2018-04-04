@@ -1,3 +1,4 @@
+/*
 package com.nodistraction4.evelijn.nodistraction;
 
 import android.content.Context;
@@ -15,9 +16,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+*/
 /**
  * Created by Evelijn on 21-3-2018.
- */
+ *//*
+
 
 public class AppAdapter extends BaseAdapter {
     public ArrayList<String> appsOn = new ArrayList<String>();
@@ -95,3 +98,4 @@ public class AppAdapter extends BaseAdapter {
     }
 }
 
+*/

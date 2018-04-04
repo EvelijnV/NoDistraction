@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.nodistraction4.evelijn.nodistraction.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
         </activity>
 
         <service
-            android:name="com.nodistraction4.evelijn.nodistraction.NLService"
+            android:name=".NLService"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
@@ -36,7 +36,7 @@
         </service>
 
         <activity
-            android:name="com.nodistraction4.evelijn.nodistraction.ListofAppsActivity"
+            android:name=".ListofAppsActivity"
             android:label="@string/title_activity_select_apps" />
     </application>
 
