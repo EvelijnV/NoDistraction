@@ -1,4 +1,4 @@
-package com.nodistraction7.evelijn.nodistraction;
+package com.nodistraction8.evelijn.nodistraction;
 
 import android.app.Activity;
 import android.content.Context;
@@ -49,7 +49,7 @@ public class ListofAppsActivity extends Activity {
                 String appName = p.applicationInfo.loadLabel(getPackageManager()).toString();
                 Drawable icon = p.applicationInfo.loadIcon(getPackageManager());
                 String packageName = p.applicationInfo.packageName;
-                res.add(new com.nodistraction7.evelijn.nodistraction.AppList(appName,packageName, icon));
+                res.add(new com.nodistraction8.evelijn.nodistraction.AppList(appName,packageName, icon));
             }
         }
         return res;
@@ -61,7 +61,7 @@ public class ListofAppsActivity extends Activity {
 
     public class AppAdapter extends BaseAdapter {
         private LayoutInflater layoutInflater;
-        private List<com.nodistraction7.evelijn.nodistraction.AppList> listStorage;
+        private List<com.nodistraction8.evelijn.nodistraction.AppList> listStorage;
 
         public AppAdapter(Context context, List<AppList> customizedListView) {
             layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -135,7 +135,7 @@ public class ListofAppsActivity extends Activity {
     }
 
     public void OnSaveAppsBtnClicked (View v){
-        Intent i2 = new Intent("com.nodistraction7.evelijn.nodistraction");
+        Intent i2 = new Intent("com.nodistraction8.evelijn.nodistraction");
         i2.putExtra("command", "filterChanged");
         i2.putExtra("filter",appsOn);
         sendBroadcast(i2);

@@ -1,4 +1,4 @@
-package com.nodistraction7.evelijn.nodistraction;
+package com.nodistraction8.evelijn.nodistraction;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
         txtView = (TextView) findViewById(R.id.textView);
         nReceiver = new NotificationReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.nodistraction7.evelijn.nodistraction");
+        filter.addAction("com.nodistraction8.evelijn.nodistraction");
         registerReceiver(nReceiver,filter);
 
 
@@ -49,11 +49,11 @@ public class MainActivity extends Activity {
         unregisterReceiver(nReceiver);
     }
     public void switchClicked(View v){
-        Intent i = new Intent("com.nodistraction7.evelijn.nodistraction");
+        Intent i = new Intent("com.nodistraction8.evelijn.nodistraction");
         i.putExtra("command","notifyBlockOnChanged");
         Switch notifySwitch = (Switch) v ;
         i.putExtra("NotifyBlockOn",notifySwitch.isChecked());
-        System.out.println("in main notifyswit.isChecked is " + notifySwitch.isChecked());
+        System.out.println("in main notifyswict.isChecked is " + notifySwitch.isChecked());
         sendBroadcast(i);
 
 
@@ -74,18 +74,18 @@ public class MainActivity extends Activity {
             nManager.notify((int)System.currentTimeMillis(),ncomp.build());
         }
         else if(v.getId() == R.id.btnClearNotify){
-            Intent i = new Intent("com.nodistraction7.evelijn.nodistraction");
+            Intent i = new Intent("com.nodistraction8.evelijn.nodistraction");
             i.putExtra("command","clearall");
             sendBroadcast(i);
         }
         else if(v.getId() == R.id.btnListNotify){
-            Intent i = new Intent("com.nodistraction7.evelijn.nodistraction");
+            Intent i = new Intent("com.nodistraction8.evelijn.nodistraction");
             i.putExtra("command","list");
             sendBroadcast(i);
         }
         else if(v.getId() == R.id.btnSelectApps){
             Intent i = new Intent(this,ListofAppsActivity.class);
-            i.putExtra("filter",blockedNotifications);
+            //i.putExtra("filter",blockedNotifications);
             startActivity(i);
         }
 

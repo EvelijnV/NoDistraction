@@ -25,7 +25,7 @@ import java.util.List;
 public class AppAdapter extends BaseAdapter {
     public ArrayList<String> appsOn = new ArrayList<String>();
     private LayoutInflater layoutInflater;
-    private List<com.nodistraction7.evelijn.nodistraction.AppList> listStorage;
+    private List<com.nodistraction8.evelijn.nodistraction.AppList> listStorage;
 
     public AppAdapter(Context context, List<AppList> customizedListView) {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
